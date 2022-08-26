@@ -25,7 +25,7 @@ const CategoryItem=({item,onPress,selected})=>{
             elevation={3}
             shadowOffset={{width: -2, height: 5}}
             padding="s">
-            <Text variant={selected?"textwhite":"text"} textAlign="center">
+            <Text variant={selected?"textblack":"text"} textAlign="center">
                 {item}
             </Text>
          </Box>

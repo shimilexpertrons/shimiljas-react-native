@@ -4,6 +4,7 @@ const palette = {
   gray: '#f2f2f2',
   black: '#0B0B0B',
   white: '#FFFFFF',
+  red:'red'
 };
 
 const theme = createTheme({
@@ -11,8 +12,10 @@ const theme = createTheme({
     mainBackground: palette.gray,
     cardPrimaryBackground: palette.white,
     text: palette.black,
+    danger:palette.red
   },
   spacing: {
+    vs:2,
     p: 10,
     s: 8,
     m: 16,
@@ -45,10 +48,16 @@ const theme = createTheme({
       fontSize: 16,
       color: 'cardPrimaryBackground',
     },
-    textwhite: {
+    textblack: {
       fontFamily: 'Montserrat-Regular',
       fontSize: 16,
       color: 'text',
+    },
+    error: {
+      fontFamily: 'Montserrat-Regular',
+      fontSize: 16,
+      color: 'danger',
+      marginTop:'vs'
     },
   },
 });

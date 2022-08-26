@@ -52,7 +52,7 @@ const ProductItem = ({item}) => {
           borderBottomRightRadius={12}
           backgroundColor="text">
           <Text variant="text">{item?.Name}</Text>
-          <Text variant="text">{item?.Price}</Text>
+          <Text variant="text" marginTop="vs">{item?.Price}</Text>
         </Box>
       </Box>
     </TouchableOpacity>
