@@ -1,18 +1,22 @@
-import React, { memo} from 'react';
-import {
-  View,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import React, {memo} from 'react';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useTheme} from '@shopify/restyle';
+import {useNavigation} from '@react-navigation/native';
 
-const FloatButton = ({onPress}) => {
+const FloatButton = () => {
   const theme = useTheme();
- 
+  const navigation = useNavigation();
+
   return (
-    <View style={[style.container, {backgroundColor: theme.colors.white,borderColor:theme.colors.black}]}>
-      <TouchableOpacity onPress={onPress} style={style.donwContainer}>
+    <View
+      style={[
+        style.container,
+        {backgroundColor: theme.colors.white, borderColor: theme.colors.black},
+      ]}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('AddProduct')}
+        style={style.donwContainer}>
         <Entypo name="plus" size={30} color={theme.colors.text} />
       </TouchableOpacity>
     </View>
@@ -35,7 +39,7 @@ const style = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth:2,
+    borderWidth: 2,
   },
 });
 

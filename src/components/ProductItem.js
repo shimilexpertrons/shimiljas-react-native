@@ -1,36 +1,61 @@
-import React, { memo} from 'react';
+import React, {memo} from 'react';
 import {
   View,
   TouchableOpacity,
   StyleSheet,
+  Dimensions,
+  Image,
 } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {createBox, createText,useTheme} from '@shopify/restyle';
+import {createBox, createText, useTheme} from '@shopify/restyle';
 
 const Box = createBox();
 const Text = createText();
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+import {useNavigation} from '@react-navigation/native';
 
-const ProductItem=({item,onPress,selected})=>{
-    return (
-        <TouchableOpacity onPress={onPress}>
-          <Box
-            justifyContent="center"
-            backgroundColor={selected?"cardPrimaryBackground":"text"}
-            alignItems="center"
-            borderRadius={12}
-            height={40}
-            marginRight='s'
-            shadowRadius={3}
-            shadowColor={"text"}
-            elevation={3}
-            shadowOffset={{width: -2, height: 5}}
-            padding="s">
-            <Text variant={selected?"textwhite":"text"} textAlign="center">
-                {item}
-            </Text>
-         </Box>
-       </TouchableOpacity>
-    )
-
-}
-export default ProductItem
+const ProductItem = ({item}) => {
+  const navigation = useNavigation();
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate('ProductDetail')}>
+      <Box
+        justifyContent="center"
+        backgroundColor={'cardPrimaryBackground'}
+        alignItems="center"
+        borderRadius={12}
+        shadowRadius={3}
+        width={windowWidth / 2 - 17}
+        height={windowHeight / 3}
+        margin={'s'}
+        shadowColor={'text'}
+        elevation={3}
+        overflow="hidden"
+        alignSelf="center"
+        shadowOffset={{width: -2, height: 5}}>
+        <Box
+          flex={8}
+          justifyContent="center"
+          alignItems="center"
+          backgroundColor="cardPrimaryBackground">
+          <Image
+            source={{uri: item?.Avatar}}
+            style={{width: windowWidth / 2 - 17, height: 100}}
+            resizeMode={'contain'}
+          />
+        </Box>
+        <Box
+          width={'100%'}
+          padding={'s'}
+          flex={2}
+          borderBottomLeftRadius={12}
+          borderBottomRightRadius={12}
+          backgroundColor="text">
+          <Text variant="text">{item?.Name}</Text>
+          <Text variant="text">{item?.Price}</Text>
+        </Box>
+      </Box>
+    </TouchableOpacity>
+  );
+};
+export default ProductItem;

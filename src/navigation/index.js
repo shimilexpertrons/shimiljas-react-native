@@ -10,9 +10,17 @@ import ProductDetail from '../screen/ProductDetail';
 export default function Navigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomePage} />
+      <Stack.Screen
+        name="Home"
+        component={HomePage}
+        options={{headerShown: false}}
+      />
       <Stack.Screen name="AddProduct" component={AddProduct} />
-      <Stack.Screen name="ProductDetail" component={ProductDetail} />
+      <Stack.Screen
+        name="ProductDetail"
+        component={ProductDetail}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }
