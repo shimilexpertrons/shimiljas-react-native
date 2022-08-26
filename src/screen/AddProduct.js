@@ -30,7 +30,7 @@ const AddProduct = () => {
   const mutation = useMutation(ApiManager.addProduct, {
     onSuccess: (data) => {
       queryClient.setQueryData('products',(oldProducts)=>{
-        return [...oldProducts,data.data]
+        return [data.data,...oldProducts]
       });
       navigation.goBack();
     },

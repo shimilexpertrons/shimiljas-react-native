@@ -21,7 +21,7 @@ import {fetchCategories} from '../reducer/categoryReducer';
 const Box = createBox();
 const Text = createText();
 const HomePage = () => {
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('All');
 
   const dispatch = useDispatch();
   const categoriresData = useSelector(state => state?.categorires);
@@ -59,12 +59,17 @@ const HomePage = () => {
               horizontal
               showsHorizontalScrollIndicator={false}
               style={{marginTop: 7}}>
+               <CategoryItem
+                  selected={category == 'All'}
+                  item={'All'}
+                  onPress={() => setCategory('All')}
+                />
               {categoriresData.data.map((item, index) => (
                 <CategoryItem
                   key={index}
-                  selected={category == item}
+                  selected={category == item?.title}
                   item={item?.title}
-                  onPress={() => setCategory(item)}
+                  onPress={() => setCategory(item?.title)}
                 />
               ))}
             </ScrollView>

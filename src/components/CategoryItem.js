@@ -22,7 +22,6 @@ const CategoryItem=({item,onPress,selected})=>{
             marginRight='s'
             shadowRadius={3}
             shadowColor={"text"}
-            elevation={3}
             shadowOffset={{width: -2, height: 5}}
             padding="s">
             <Text variant={selected?"textblack":"text"} textAlign="center">

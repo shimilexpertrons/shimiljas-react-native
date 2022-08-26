@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {createBox, createText} from '@shopify/restyle';
 import {useQuery} from 'react-query';
+import {AnimatedFlatList, AnimationType} from 'flatlist-intro-animations';
 
 import ProductItem from './ProductItem';
 import {products} from '../dummydata';
@@ -39,16 +40,19 @@ const ProductList = () => {
   }
 
   return (
-      <>
-       <Text variant="textblack">{data.length}</Text>
-        <FlatList
+    <>
+      {/* <Text variant="textblack">{data.length}</Text> */}
+      <AnimatedFlatList
         data={data}
         showsVerticalScrollIndicator={false}
         style={styles.flatlist}
         contentContainerStyle={{alignItems: 'center'}}
         numColumns={2}
+        animationType={AnimationType.SlideFromBottom}
+        animationDuration={1000}
+        focused
         renderItem={({item}) => <ProductItem selected item={item} />}
-        />
+      />
     </>
   );
 };
