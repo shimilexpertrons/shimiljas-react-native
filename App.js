@@ -20,6 +20,8 @@ import {store} from './src/store';
 import theme from './src/theme';
 
 const queryClient = new QueryClient();
+
+
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>

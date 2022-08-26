@@ -22,7 +22,7 @@ const getProducts = () => {
 };
 
 
-const addProducts = (data) => {
+const addProduct = (data) => {
   return request(
     {
       method: 'post',
@@ -36,5 +36,5 @@ const addProducts = (data) => {
 export default {
     getCategories,
     getProducts,
-    addProducts
+    addProduct
   }

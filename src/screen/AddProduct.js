@@ -11,17 +11,45 @@ const Text = createText();
 import InputBox from '../components/InputBox';
 import CategoryItem from '../components/CategoryItem';
 import {productSchema} from '../util/formSchema';
+import ApiManager from '../util/services';
+
+
 import {Formik} from 'formik';
 
-import {useSelector, useDispatch} from 'react-redux';
+import {useMutation,useQueryClient} from 'react-query';
+import {useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
+
+
 
 const AddProduct = () => {
+  const navigation = useNavigation();
+  const queryClient = useQueryClient();
   // const [category, setCategory] = useState('');
   const categoriresData = useSelector(state => state?.categorires);
+  const mutation = useMutation(ApiManager.addProduct, {
+    onSuccess: (data) => {
+      queryClient.setQueryData('products',(oldProducts)=>{
+        return [...oldProducts,data.data]
+      });
+      navigation.goBack();
+    },
+  });
+
+
   const handleFormSubmit = (values, {setSubmitting}) => {
-    console.log(values, 'valuesvaluesvaluesvalues');
+    // console.log(values, 'valuesvaluesvaluesvalues');
+    setSubmitting(true)
+    mutation.mutate({
+      id: Date.now(),
+      title: 'Terminator',
+      body:"upiditate quo est a modi",
+      userId: 10
+    });
     setSubmitting(false)
   };
+
+
   return (
     <KeyboardAvoidingView style={{flex: 1}}>
       <Box
@@ -30,7 +58,7 @@ const AddProduct = () => {
         backgroundColor="mainBackground"
         padding="l">
         <Formik
-          validationSchema={productSchema}
+          // validationSchema={productSchema}
           initialValues={{
             Name: '',
             Price: '',

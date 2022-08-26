@@ -39,14 +39,17 @@ const ProductList = () => {
   }
 
   return (
-    <FlatList
-      data={data}
-      showsVerticalScrollIndicator={false}
-      style={styles.flatlist}
-      contentContainerStyle={{alignItems: 'center'}}
-      numColumns={2}
-      renderItem={({item}) => <ProductItem selected item={item} />}
-    />
+      <>
+       <Text variant="textblack">{data.length}</Text>
+        <FlatList
+        data={data}
+        showsVerticalScrollIndicator={false}
+        style={styles.flatlist}
+        contentContainerStyle={{alignItems: 'center'}}
+        numColumns={2}
+        renderItem={({item}) => <ProductItem selected item={item} />}
+        />
+    </>
   );
 };
 
