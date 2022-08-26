@@ -15,7 +15,6 @@ const request = async (options, isHeader = true) => {
       baseURL: BASE_URL,
       headers: {
         app: 'qubex',
-        'version-code': build,
         'x-access-token': authHeader,
       },
     });

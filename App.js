@@ -16,16 +16,21 @@ import theme from './src/theme';
 import {NavigationContainer} from '@react-navigation/native';
 
 import Navigator from './src/navigation';
+import {store} from './src/store'
+
+import { Provider } from 'react-redux'
 
 const App = () => {
   return (
     <NavigationContainer>
-      <ThemeProvider theme={theme}>
-        <>
-          <StatusBar barStyle={'light-content'} />
-          <Navigator />
-        </>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <>
+            <StatusBar barStyle={'light-content'} />
+            <Navigator />
+          </>
+        </ThemeProvider>
+      </Provider>
     </NavigationContainer>
   );
 };
