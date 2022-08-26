@@ -1,23 +1,19 @@
-import { createTheme } from '@shopify/restyle'
+import {createTheme} from '@shopify/restyle';
 
 const palette = {
-  greenLight: '#56DCBA',
-  greenPrimary: '#0ECD9D',
   gray: '#f2f2f2',
   black: '#0B0B0B',
   white: '#FFFFFF',
 };
 
-
 const theme = createTheme({
   colors: {
     mainBackground: palette.gray,
     cardPrimaryBackground: palette.white,
-    primary: palette.greenPrimary,
-    secondary: palette.greenLight,
     text: palette.black,
   },
   spacing: {
+    p:10,
     s: 8,
     m: 16,
     l: 24,
@@ -28,34 +24,32 @@ const theme = createTheme({
     tablet: 768,
   },
   textVariants: {
-      header: {
-        fontFamily: 'Montserrat-Bold',
-        fontSize: 34,
-        lineHeight: 42.5,
-        color: 'text',
-      },
-      subheader: {
-        fontFamily: 'Montserrat-SemiBold',
-        fontSize: 24,
-        lineHeight: 30,
-        color: 'text',
-      },
-      paragraph: {
-        fontFamily: 'Montserrat-Light',
-        fontSize: 16,
-        lineHeight: 24,
-        color: 'text',
-      },
-      text: {
-        fontFamily: 'Montserrat-Regular',
-        fontSize: 16,
-        color: 'cardPrimaryBackground',
-      },
-      textwhite: {
-        fontFamily: 'Montserrat-Regular',
-        fontSize: 16,
-        color: 'text',
-      },
+    header: {
+      fontFamily: 'Montserrat-Bold',
+      fontSize: 30,
+      color: 'cardPrimaryBackground',
+    },
+    storeHeader: {
+      fontFamily: 'Montserrat-Bold',
+      fontSize: 20,
+      color: 'text',
+    },
+    paragraph: {
+      fontFamily: 'Montserrat-Light',
+      fontSize: 16,
+      lineHeight: 24,
+      color: 'cardPrimaryBackground',
+    },
+    text: {
+      fontFamily: 'Montserrat-Regular',
+      fontSize: 16,
+      color: 'cardPrimaryBackground',
+    },
+    textwhite: {
+      fontFamily: 'Montserrat-Regular',
+      fontSize: 16,
+      color: 'text',
+    },
   },
 });
 

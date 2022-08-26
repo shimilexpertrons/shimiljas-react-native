@@ -25,14 +25,14 @@ const ProductItem = ({item}) => {
         alignItems="center"
         borderRadius={12}
         shadowRadius={3}
-        width={windowWidth / 2 - 17}
+        width={windowWidth / 2 - 25}
         height={windowHeight / 3}
         margin={'s'}
         shadowColor={'text'}
         elevation={3}
         overflow="hidden"
         alignSelf="center"
-        shadowOffset={{width: -2, height: 5}}>
+        shadowOffset={{width: 2, height: 5}}>
         <Box
           flex={8}
           justifyContent="center"
@@ -40,7 +40,7 @@ const ProductItem = ({item}) => {
           backgroundColor="cardPrimaryBackground">
           <Image
             source={{uri: item?.Avatar}}
-            style={{width: windowWidth / 2 - 17, height: 100}}
+            style={{width: windowWidth / 2 - 25, height: 100}}
             resizeMode={'contain'}
           />
         </Box>

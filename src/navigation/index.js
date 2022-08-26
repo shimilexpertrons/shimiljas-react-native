@@ -19,7 +19,7 @@ export default function Navigator() {
       <Stack.Screen
         name="ProductDetail"
         component={ProductDetail}
-        options={{headerShown: false}}
+        options={{headerTitle: ''}}
       />
     </Stack.Navigator>
   );

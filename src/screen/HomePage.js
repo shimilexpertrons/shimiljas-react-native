@@ -4,6 +4,7 @@ import {createBox, createText} from '@shopify/restyle';
 import FloatButton from '../components/FloatButton';
 import CategoryItem from '../components/CategoryItem';
 import ProductItem from '../components/ProductItem';
+import Header from '../components/Header'
 import {categorires, products} from '../dummydata';
 import {AnimatedFlatList} from 'flatlist-intro-animations';
 const Box = createBox();
@@ -16,12 +17,14 @@ const HomePage = () => {
         flex={1}
         justifyContent="center"
         backgroundColor="mainBackground"
-        padding="s">
-        <Box height={65}>
+        >
+        <Header/>
+        <Box flex={1} padding={'p'}>
+        <Box height={50}>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            style={{marginTop: 10, padding: 5}}>
+            style={{marginTop: 7}}>
             {categorires.map(item => (
               <CategoryItem
                 selected={category == item}
@@ -39,6 +42,7 @@ const HomePage = () => {
           numColumns={2}
           renderItem={({item}) => <ProductItem selected item={item} />}
         />
+        </Box>
       </Box>
       <FloatButton />
     </>
@@ -48,7 +52,7 @@ const HomePage = () => {
 const styles = StyleSheet.create({
   flatlist: {
     flex: 1,
-    marginTop: 6,
+    marginTop: 4,
     paddingHorizontal: 4,
   },
 });
