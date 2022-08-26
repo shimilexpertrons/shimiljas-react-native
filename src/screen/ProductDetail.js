@@ -6,7 +6,8 @@ const Text = createText();
 
 const windowWidth = Dimensions.get('window').width;
 
-const ProductDetail = () => {
+const ProductDetail = ({route}) => {
+  const product=route?.params?.product
   return (
     <Box flex={1} backgroundColor="cardPrimaryBackground">
       <Box
@@ -39,7 +40,7 @@ const ProductDetail = () => {
           flexDirection="row"
           justifyContent="space-between"
           padding={'l'}>
-          <Text variant="header">sofa</Text>
+          <Text variant="header" numberOfLines={1}>{product?.title}</Text>
           <Text variant="header">$80</Text>
         </Box>
         <Box flex={8} alignItems="flex-start" padding={'l'}>

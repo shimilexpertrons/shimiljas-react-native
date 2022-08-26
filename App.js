@@ -7,31 +7,34 @@
  */
 
 import React from 'react';
-import { StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
 
 import {ThemeProvider} from '@shopify/restyle';
 
-import theme from './src/theme';
-
 import {NavigationContainer} from '@react-navigation/native';
+import {Provider} from 'react-redux';
+import {QueryClient, QueryClientProvider} from 'react-query';
 
 import Navigator from './src/navigation';
-import {store} from './src/store'
+import {store} from './src/store';
+import theme from './src/theme';
 
-import { Provider } from 'react-redux'
-
+const queryClient = new QueryClient();
 const App = () => {
   return (
-    <NavigationContainer>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <>
-            <StatusBar barStyle={'light-content'} />
-            <Navigator />
-          </>
-        </ThemeProvider>
-      </Provider>
-    </NavigationContainer>
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer>
+        
+          <Provider store={store}>
+            <ThemeProvider theme={theme}>
+              <>
+                <StatusBar barStyle={'light-content'} />
+                <Navigator />
+              </>
+            </ThemeProvider>
+          </Provider>
+      </NavigationContainer>
+    </QueryClientProvider>
   );
 };
 
