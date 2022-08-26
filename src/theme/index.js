@@ -13,7 +13,7 @@ const theme = createTheme({
     text: palette.black,
   },
   spacing: {
-    p:10,
+    p: 10,
     s: 8,
     m: 16,
     l: 24,
